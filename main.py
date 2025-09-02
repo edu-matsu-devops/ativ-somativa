@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+
 app = FastAPI()
 
 @app.get("/")
@@ -25,3 +26,11 @@ usuarios_db = [
 def criar_usuario(usuario: Usuario):
     usuarios_db.append(usuario.dict())
     return {"mensagem": "Usuário criado com sucesso", "usuario": usuario}
+]
+
+@app.get("/usuarios/{usuario_id}")
+def buscar_usuario(usuario_id:int):
+    for u in usarios_db:
+      if u["id"] == usuario_id:
+        return u
+    raise HTTPExeception(status_code=404, detail="Usuário não encontrado")
