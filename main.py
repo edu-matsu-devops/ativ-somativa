@@ -30,7 +30,7 @@ def criar_usuario(usuario: Usuario):
 
 @app.get("/usuarios/{usuario_id}")
 def buscar_usuario(usuario_id:int):
-    for u in usarios_db:
+    for u in usuarios_db:
       if u["id"] == usuario_id:
         return u
-    raise HTTPExeception(status_code=404, detail="Usuário não encontrado")
+    raise HTTPException(status_code=404, detail="Usuário não encontrado")
