@@ -16,7 +16,7 @@ jobs:
         with:
           name: teste
           path: |
-            '**.py'
+            **.py
             README.md
             
   deploy:
