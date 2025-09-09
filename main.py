@@ -33,3 +33,4 @@ def buscar_usuario(usuario_id:int):
       if u["id"] == usuario_id:
         return u
     raise HTTPException(status_code=404, detail="Usuário não encontrado")
+
