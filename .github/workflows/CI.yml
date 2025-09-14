@@ -34,15 +34,3 @@ jobs:
           context: .
           push: false
           tags: user/app:latest
-
-  discord:
-    runs-on: ubuntu-latest
-    steps:
-
-    - uses: actions/checkout@v4
-
-    - name: Run Discord Webhook
-      uses: tsickert/discord-webhook@v7.0.0
-      with:
-        webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-        content: "Test"
