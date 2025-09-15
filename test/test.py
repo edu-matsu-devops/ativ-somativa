@@ -3,7 +3,9 @@ from src.main import *
 from fastapi import HTTPException
 
 def test_root():
-    assert root() == {"message": "Hello World"}
+    result = root()
+    yield result
+    assert result == {"message": "Hello World"}
 
 
 def test_listar_usuarios():
