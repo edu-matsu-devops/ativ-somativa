@@ -4,7 +4,6 @@ from fastapi import HTTPException
 
 def test_root():
     result = root()
-    yield result
     assert result == {"message": "Hello World"}
 
 
