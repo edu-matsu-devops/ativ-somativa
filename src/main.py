@@ -3,14 +3,6 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-@app.get("/usuarios")
-def listar_usuarios():
-    return usuarios_db
-
 class Usuario(BaseModel):
     id: int
     nome: str
@@ -21,6 +13,13 @@ usuarios_db = [
         {"id": 2, "nome": "Ana", "email": "ana@gmail.com"},
         {"id": 3, "nome": "Maria", "email": "maria@gmail.com"}
 ]
+
+@app.get("/")
+def root():
+    return {"message": "Hello World"}
+@app.get("/usuarios")
+def listar_usuarios():
+    return usuarios_db
 
 @app.post("/usuarios")
 def criar_usuario(usuario: Usuario):
